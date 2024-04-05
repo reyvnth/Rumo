@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       colors:{
-        chatblack: {50: '#343541'}
+        chatblack: {50: '#b8a07c'}
       }
     },
   },
