@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/css/main.css">
-    <link rel="shortcut icon" href="/assets/images/rumo_favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/static/images/rumo_favicon.png" type="image/x-icon">
     <style>
         .right2 {
             display: none;
@@ -20,13 +21,13 @@
         <div class="left bg-[#FFFFFF] w-2/12">
 
             <button
-                class="w-[90%] py-2 m-2 px-10 space-x-2 border-black border rounded-md flex mx-4 justify-start items-center hover:opacity-10">
+                class="w-[90%] py-2 m-2 px-10 space-x-2 border-black border rounded-md flex mx-4 justify-start items-center hover:opacity-10 black-button">
                 <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
                     stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                     <line x1="12" y1="5" x2="12" y2="19"></line>
                     <line x1="5" y1="12" x2="19" y2="12"></line>
                 </svg>
-                <span>New Destination?</span>
+                <span class="white-text"n>New Destination?</span>
             </button>
             <div class="text-xs m-4 mx-8 text-black">Travel plans</div>
             <div class="chats flex flex-col justify-center items-center space-y-2">
@@ -49,9 +50,10 @@
 
 
         <div class="right1 w-10/12 flex justify-center items-center flex-col">
-            <img src="/assets/images/rumo_main.png" class="my-24">
-            <div class="input w-full text-center my-24 flex items-center justify-center flex-col">
-                <div class="buttonsvg pl-10 w-[50vw] flex">
+            <img src="/static/images/rumo_logo.png" class="logo" style="width: 200px; height: auto;">
+            <img src="/static/images/rumo_main.png" class="my-0" style="width: 600px; height: auto;">
+            <div class="input w-full text-center my-0 flex items-center justify-center flex-col">
+                <div class="buttonsvg pl-10 w-[40vw] flex">
                     <input class="w-full p-4 bg-gray-600 rounded-md" placeholder="Where are you planning your vacation to?" type="text"
                         name="text" id="questionInput">
 
@@ -78,7 +80,7 @@
             </div>
             <div class="box2 bg-gray-600 py-7 flex justify-center w-full items-center">
                 <div class="box w-[40vw] flex justify-start space-x-6">
-                    <img class="w-9 h-9" src="/assets/images/rumo_wobg.png" alt="">
+                    <img class="w-9 h-9" src="/static/images/rumo_wobg.png" alt="">
                     <div class="flex space-y-4 flex-col">
                         <div id="question1">Loading...</div>
                         <div id="solution">Loading...</div>

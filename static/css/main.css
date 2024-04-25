@@ -264,6 +264,7 @@ Correct the cursor style of increment and decrement buttons in Safari.
   height: auto;
 }
 
+
 /*
 1. Correct the odd appearance in Chrome and Safari.
 2. Correct the outline style in Safari.
@@ -832,4 +833,19 @@ video {
 
 .hover\:opacity-70:hover {
   opacity: 0.7;
+}
+
+.black-button {
+  background-color: black;
+  color: white;
+}
+
+.white-text {
+  color: white;
+}
+
+.logo {
+  align-self: flex-start; /* Align the logo to the start of the flex container (left) */
+  margin-bottom: 70px;
+  margin-left: 30px; /* Add margin to the bottom of the logo to separate it from the other content */
 }

@@ -5,10 +5,10 @@ from openai import OpenAI
 app = Flask(__name__)
 
 
-client = OpenAI(api_key = "")
+client = OpenAI(api_key = "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")
 
 
-app.config["MONGO_URI"] = "mongodb+srv://reyvnth:Uvo2PMYL3p9ZEZj4@cluster0.9yjga1f.mongodb.net/gemini_api"
+app.config["MONGO_URI"] = "mongodb+srv://reyvnth:Uvo2PMYL3p9ZEZj4@cluster0.9yjga1f.mongodb.net/chats"
 mongo = PyMongo(app)
 
 @app.route("/")
