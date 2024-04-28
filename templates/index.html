@@ -27,33 +27,29 @@
                     <line x1="12" y1="5" x2="12" y2="19"></line>
                     <line x1="5" y1="12" x2="19" y2="12"></line>
                 </svg>
-                <span class="white-text"n>New Destination?</span>
+                <span class="white-text">New Destination?</span>
             </button>
-            <div class="text-xs m-4 mx-8 text-black">Travel plans</div>
+            <div class="text-xs m-4 mx-8 text-black">Chat History</div>
             <div class="chats flex flex-col justify-center items-center space-y-2">
-
-
-                {% for chat in myChats %} 
-                <div class="chat space-x-2 opacity-80 w-[90%] px-5 py-2 rounded-md bg-black cursor-pointer flex justify-start items-center">
-                    <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
-                        stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-                    </svg>
-                    <span>{{chat.question}}</span>
-                </div>
-                {% endfor %}
-                
+                {% for chat in myChats %}
+<div id="chat-{{ loop.index }}" class="chat space-x-2 opacity-80 w-[90%] px-5 py-2 rounded-md bg-black cursor-pointer flex justify-start items-center">
+    <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+        stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em"
+        xmlns="http://www.w3.org/2000/svg">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+    </svg>
+    <span>{{chat.question}}</span>
+</div>
+{% endfor %}
             </div>
-
         </div>
 
 
         <div class="right1 w-10/12 flex justify-center items-center flex-col">
-            <img src="/static/images/rumo_logo.png" class="logo" style="width: 200px; height: auto;">
-            <img src="/static/images/rumo_main.png" class="my-0" style="width: 600px; height: auto;">
+            <img src="/static/images/rumo_logo.png" class="logo" style="width: 180px; height: auto;">
+            <img src="/static/images/rumo_main.png" class="my-0" style="width: 500px; height: auto;">
             <div class="input w-full text-center my-0 flex items-center justify-center flex-col">
-                <div class="buttonsvg pl-10 w-[40vw] flex">
+                <div class="buttonsvg pl-10 w-[50vw] flex">
                     <input class="w-full p-4 bg-gray-600 rounded-md" placeholder="Where are you planning your vacation to?" type="text"
                         name="text" id="questionInput">
 
@@ -66,16 +62,14 @@
                         </svg>
                     </button>
                 </div>
-                <div class="text-xs py-2 pr-10 opacity-70">Taking you across the globe.. <br> Rumo Mar 2024
-                    Version 0.0.1 <br> Built using Google Gemini </div>
+                <div class="text-xs py-2 pr-10 opacity-70">Taking you across the globe. © Rumo Mar 2024
+                    Version 0.0.1 <br> Built with Google AI Studio </div>
             </div>
         </div>
 
         <div class="right2 w-full flex flex-col items-center h-fit">
             <div class="box1 m-auto py-7 flex justify-start w-[40vw] items-center space-x-6">
-                <img class="w-9"
-                    src=""
-                    alt="">
+                <img class="w-9" src="" alt="">
                 <div id="question2">Loading...</div>
             </div>
             <div class="box2 bg-gray-600 py-7 flex justify-center w-full items-center">
@@ -110,6 +104,30 @@
 
     </div>
     <script src="/static/js/script.js"></script>
+    <script>
+        // Function to handle sending the message
+        async function sendMessage(question) {
+            document.getElementById("questionInput").value = question;
+            document.querySelector(".right2").style.display = "block";
+            document.querySelector(".right1").style.display = "none";
+
+            // Populate the questions
+            document.getElementById("question1").innerHTML = question;
+            document.getElementById("question2").innerHTML = question;
+
+            // Get the answer and populate it
+            let result = await postData("/api", { "question": question });
+            document.getElementById("solution").innerHTML = result.answer;
+        }
+
+        // Add event listeners to chat buttons
+        document.querySelectorAll(".chat").forEach(chat => {
+            chat.addEventListener("click", () => {
+                const question = chat.querySelector("span").innerText;
+                sendMessage(question);
+            });
+        });
+    </script>
 </body>
 
 </html>
