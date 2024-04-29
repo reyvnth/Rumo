@@ -18,10 +18,10 @@
 
 <body class="bg-chatblack-50">
     <div class="flex h-[100vh] text-black">
-        <div class="left bg-[#FFFFFF] w-2/12">
+        <div class="left bg-[#FFFFFF] w-4/14">
 
             <button
-                class="w-[90%] py-2 m-2 px-10 space-x-2 border-black border rounded-md flex mx-4 justify-start items-center hover:opacity-10 black-button">
+                class="w-[90%] py-2 m-2 px-10 space-x-2 border-black border rounded-md flex mx-4 justify-start items-center hover:opacity-10 black-button" id="newDestinationButton">
                 <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
                     stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                     <line x1="12" y1="5" x2="12" y2="19"></line>
@@ -31,21 +31,22 @@
             </button>
             <div class="text-xs m-4 mx-8 text-black">Chat History</div>
             <div class="chats flex flex-col justify-center items-center space-y-2">
-                {% for chat in myChats %}
-<div id="chat-{{ loop.index }}" class="chat space-x-2 opacity-80 w-[90%] px-5 py-2 rounded-md bg-black cursor-pointer flex justify-start items-center">
-    <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
-        stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em"
-        xmlns="http://www.w3.org/2000/svg">
-        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-    </svg>
-    <span>{{chat.question}}</span>
+                <div class="chats flex flex-col justify-center items-center space-y-2">
+    {% for chat in myChats %}
+    <div id="chat-{{ loop.index }}" class="chat space-x-2 opacity-10 w-[90%] px-3 py-2 rounded-md bg-black cursor-pointer  flex justify-start items-center">
+        <svg class="h-4 w-4 icon" stroke="currentColor" fill="none" stroke-width="1" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        </svg>
+            <span>{{ chat.question }}</span>
+        </div>
+    {% endfor %}
 </div>
-{% endfor %}
+
             </div>
         </div>
 
 
-        <div class="right1 w-10/12 flex justify-center items-center flex-col">
+        <div class="right1 w-10/14 flex justify-center items-center flex-col">
             <img src="/static/images/rumo_logo.png" class="logo" style="width: 180px; height: auto;">
             <img src="/static/images/rumo_main.png" class="my-0" style="width: 500px; height: auto;">
             <div class="input w-full text-center my-0 flex items-center justify-center flex-col">
@@ -70,13 +71,12 @@
         <div class="right2 w-full flex flex-col items-center h-fit">
             <div class="box1 m-auto py-7 flex justify-start w-[40vw] items-center space-x-6">
                 <img class="w-9" src="" alt="">
-                <div id="question2">Loading...</div>
+                <div id="question1">Loading...</div>
             </div>
             <div class="box2 bg-gray-600 py-7 flex justify-center w-full items-center">
                 <div class="box w-[40vw] flex justify-start space-x-6">
                     <img class="w-9 h-9" src="/static/images/rumo_wobg.png" alt="">
                     <div class="flex space-y-4 flex-col">
-                        <div id="question1">Loading...</div>
                         <div id="solution">Loading...</div>
                     </div>
                 </div>
@@ -84,8 +84,8 @@
 
             <div class="input pt-80 w-full text-center mt-52 flex items-center justify-center flex-col">
                 <div class="buttonsvg pl-16 w-[50vw] flex">
-                    <input class="w-full p-4 bg-gray-600 rounded-md" placeholder="Send a Message" type="text"
-                        name="text" id="">
+                    <input class="w-full p-4 bg-gray-600 rounded-md" placeholder="Any other queries?" type="text"
+                        name="text" id="question1">
 
                     <button class="relative -left-20 pl-10">
                         <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24"
@@ -96,15 +96,15 @@
                         </svg>
                     </button>
                 </div>
-                <div class="text-xs py-2 pr-10 opacity-70">Taking you across the globe since 2024..  Rumo Mar 2024
-                    Version 0.0.1</div>
+                <div class="text-xs py-2 pr-10 opacity-70">Taking you across the globe. © Rumo Mar 2024
+                    Version 0.0.1 <br> Built with Google AI Studio</div>
             </div>
 
         </div>
 
     </div>
     <script src="/static/js/script.js"></script>
-    <script>
+    <!-- <script>
         // Function to handle sending the message
         async function sendMessage(question) {
             document.getElementById("questionInput").value = question;
@@ -113,7 +113,7 @@
 
             // Populate the questions
             document.getElementById("question1").innerHTML = question;
-            document.getElementById("question2").innerHTML = question;
+            
 
             // Get the answer and populate it
             let result = await postData("/api", { "question": question });
@@ -127,7 +127,7 @@
                 sendMessage(question);
             });
         });
-    </script>
+    </script> -->
 </body>
 
 </html>
