@@ -15,17 +15,17 @@ async function postData(url = "", data = {}) {
 async function sendMessage(question) {
   // If the question is asked from right1, update right2 layout
   if (document.querySelector(".right1").style.display !== "none") {
+    document.getElementById("questionInput").innerHTML = questionInput;
     document.querySelector(".right2").style.display = "block";
     document.querySelector(".right1").style.display = "none";
   } else if (document.querySelector(".right2").style.display !== "none") {
-    // If the question is asked from right2, extend and add to right2 itself
-    const questionElement = document.createElement('div');
-    questionElement.classList.add("box1");
-    questionElement.textContent = question;
-    document.querySelector(".right2").appendChild(questionElement);
+   // If the question is asked from right2, extend and add to right2 itself
+    // const questionElement = document.createElement('div');
+    // questionElement.classList.add("box1");
+    // questionElement.textContent = question;
+    // document.querySelector(".right2").appendChild(questionElement);
+  }
   
-}
-
 
   // Populate the question
   document.getElementById("question1").innerHTML = question;
@@ -91,3 +91,8 @@ document.getElementById("newDestinationButton").addEventListener("click", functi
   document.querySelector(".right2").style.display = "none";
   document.querySelector(".right1").style.display = "flex";
 });
+
+// const deleteButtons = document.querySelectorAll('.delete-button');
+// deleteButtons.forEach(button => {
+//     button.addEventListener('click', handleDeleteChat);
+// });

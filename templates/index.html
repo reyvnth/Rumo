@@ -18,8 +18,7 @@
 
 <body class="bg-chatblack-50">
     <div class="flex h-[100vh] text-black">
-        <div class="left bg-[#FFFFFF] w-4/14">
-
+        <div class="left bg-[#FFFFFF] w-4/14 h-full flex flex-col" >
             <button
                 class="w-[90%] py-2 m-2 px-10 space-x-2 border-black border rounded-md flex mx-4 justify-start items-center hover:opacity-10 black-button" id="newDestinationButton">
                 <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
@@ -47,8 +46,8 @@
 
 
         <div class="right1 w-10/14 flex justify-center items-center flex-col">
-            <img src="/static/images/rumo_logo.png" class="logo" style="width: 180px; height: auto;">
-            <img src="/static/images/rumo_main.png" class="my-0" style="width: 500px; height: auto;">
+            <img src="/static/images/rumo_logo.png" class="logo" style="width: 180px; height: auto; margin-bottom: 10px;">
+    <img src="/static/images/rumo_main.png" class="my-0" style="width: 550px; height: auto; margin-top: -10px;">
             <div class="input w-full text-center my-0 flex items-center justify-center flex-col">
                 <div class="buttonsvg pl-10 w-[50vw] flex">
                     <input class="w-full p-4 bg-gray-600 rounded-md" placeholder="Where are you planning your vacation to?" type="text"
@@ -77,12 +76,12 @@
                 <div class="box w-[40vw] flex justify-start space-x-6">
                     <img class="w-9 h-9" src="/static/images/rumo_wobg.png" alt="">
                     <div class="flex space-y-4 flex-col">
-                        <div id="solution">Loading...</div>
+                        <div id="solution">Generating your itinerary...</div>
                     </div>
                 </div>
             </div>
 
-            <div class="input pt-80 w-full text-center mt-52 flex items-center justify-center flex-col">
+            <!-- <div class="input pt-80 w-full text-center mt-52 flex items-center justify-center flex-col">
                 <div class="buttonsvg pl-16 w-[50vw] flex">
                     <input class="w-full p-4 bg-gray-600 rounded-md" placeholder="Any other queries?" type="text"
                         name="text" id="question1">
@@ -98,7 +97,9 @@
                 </div>
                 <div class="text-xs py-2 pr-10 opacity-70">Taking you across the globe. © Rumo Mar 2024
                     Version 0.0.1 <br> Built with Google AI Studio</div>
-            </div>
+            </div> -->
+            <div class="text-xs py-2 pr-10 text-center flex items-center justify-center flex-col opacity-70">Taking you across the globe. © Rumo Mar 2024
+                Version 0.0.1 <br> Built with Google AI Studio</div>
 
         </div>
 

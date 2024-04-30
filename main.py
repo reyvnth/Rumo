@@ -1,6 +1,8 @@
 from flask import Flask, render_template, jsonify, request
 from flask_pymongo import PyMongo
 import google.generativeai as genai
+import markdown
+from bs4 import BeautifulSoup
 
 app = Flask(__name__)
 
@@ -44,6 +46,7 @@ model = genai.GenerativeModel(model_name="gemini-1.5-pro-latest",
 convo = model.start_chat(history=[
 ])
 
+
 # MongoDB configuration
 app.config["MONGO_URI"] = "mongodb+srv://reyvnth:Uvo2PMYL3p9ZEZj4@cluster0.9yjga1f.mongodb.net/chats"
 mongo = PyMongo(app)
@@ -67,23 +70,25 @@ def qa():
             return jsonify(data)
         else:   
             convo.send_message(question)
-            print(convo.last.text)
-            data = {"question": question, "answer": convo.last.text}
-            mongo.db.chats.insert_one({"question": question, "answer": convo.last.text})
+            print(markdown.markdown(convo.last.text))
+            data = {"question": question, "answer": markdown.markdown(convo.last.text)}
+            mongo.db.chats.insert_one({"question": question, "answer": markdown.markdown(convo.last.text)})
             return jsonify(data)
-    data = {"result": "Thank you! I'm just a machine learning model designed to respond to questions and generate text based on my training data. Is there anything specific you'd like to ask or discuss? "}
+    data = {"result": "Thank you! I'm Rumo, I can help you plan your travel "}
         
     return jsonify(data)
 
-@app.route("/delete-history", methods=["POST"])
-def delete_history():
-    # Assuming you have some identifier for the user, like user_id
-    user_id = request.json.get("user_id")
-    if user_id:
-        mongo.db.chats.delete_many({"user_id": user_id})
-        return jsonify({"message": "Chat history deleted successfully"})
-    else:
-        return jsonify({"error": "User ID not provided"}), 400
+# @app.route("/delete-history", methods=["POST"])
+# def delete_history():
+#     # Assuming you have some identifier for the user, like user_id
+#     question = request.json.get("question")
+#     if question:
+#         mongo.db.chats.delete_many({"question": question})
+#         return jsonify({"message": "Chat history deleted successfully"})
+#     else:
+#         return jsonify({"error": "User ID not provided"}), 400
     
 if __name__ == "__main__":
     app.run(debug=True, port=5001)
+
+

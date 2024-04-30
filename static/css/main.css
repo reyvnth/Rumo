@@ -98,8 +98,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-size: inherit;
-  font-weight: inherit;
+  font-size: 2rem;
+  font-weight: bold;
 }
 
 /*
@@ -317,12 +317,12 @@ h2,
 h3,
 h4,
 h5,
-h6,
+h6, 
 hr,
 figure,
 p,
 pre {
-  margin: 0;
+  margin: 1;
 }
 
 fieldset {
@@ -337,15 +337,32 @@ legend {
 ol,
 ul,
 menu {
-  list-style: none;
+  list-style-type: disc;
   margin: 0;
   padding: 0;
+  padding-left: 1.5rem
 }
 
+li {
+  display: list-item;
+  padding-left: 1.5rem /* Ensure list items are displayed as list items */
+}
 /*
 Prevent resizing textareas horizontally by default.
 */
 
+ul ul {
+  /* Add your styles for nested <ul> here */
+  list-style-type: circle;
+  padding-left: 1.5rem;  /* Example style */
+
+}
+
+/* Style for list items */
+li {
+  /* Add your styles for list items here */
+  margin-bottom: 0.5rem; /* Example style */
+}
 textarea {
   resize: vertical;
 }
@@ -601,12 +618,12 @@ video {
   height: fit-content;
 }
 
-.w-10\/12 {
-  width: 83.333333%;
+.w-10\/14 {
+  width: 78%;
 }
 
-.w-2\/12 {
-  width: 16.666667%;
+.w-4\/14 {
+  width: 22%;
 }
 
 .w-4 {
@@ -643,6 +660,11 @@ video {
 
 .w-full {
   width: 100%;
+}
+
+
+.h-full {
+  height: 100%;
 }
 
 .cursor-pointer {
@@ -851,10 +873,39 @@ video {
 }
 
 .chat {
-  border-color: #e5e7eb; /* Set the default border color */
+  /* Set the default border color */
+  bg-color: black !important;
 }
 
 .chat:hover {
-  border-color: black; /* Change the border color on hover */
+  /* Change the border color on hover */
+  border-color: black !important;
 }
 
+.icon {
+  height: 1rem; /* Adjust the height to your desired size */
+  width: 1rem; /* Adjust the width to your desired size */
+}
+
+.chats-container {
+  /* Define styles for the chats container */
+  /* For example, you can set the display property to flex to make it a flex container */
+  display: flex;
+  /* Add any other styles you need */
+}
+
+/* Default link styles */
+a {
+  color: #007bff; /* Link color */
+  text-decoration: none; /* Remove underline */
+}
+
+/* Link hover styles */
+a:hover {
+  text-decoration: underline; /* Add underline on hover */
+}
+
+/* Visited link styles */
+a:visited {
+  color: #4b0082; /* Visited link color */
+}
