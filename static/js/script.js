@@ -14,17 +14,17 @@ async function postData(url = "", data = {}) {
 
 async function sendMessage(question) {
   // If the question is asked from right1, update right2 layout
-  if (document.querySelector(".right1").style.display !== "none") {
-    document.getElementById("questionInput").innerHTML = questionInput;
+  // if (document.querySelector(".right1").style.display !== "none") {
+    // document.getElementById("questionInput").innerHTML = questionInput;
     document.querySelector(".right2").style.display = "block";
     document.querySelector(".right1").style.display = "none";
-  } else if (document.querySelector(".right2").style.display !== "none") {
+  // } else if (document.querySelector(".right2").style.display !== "none") {
    // If the question is asked from right2, extend and add to right2 itself
     // const questionElement = document.createElement('div');
     // questionElement.classList.add("box1");
     // questionElement.textContent = question;
     // document.querySelector(".right2").appendChild(questionElement);
-  }
+  // }
   
 
   // Populate the question
