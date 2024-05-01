@@ -87,10 +87,10 @@ document.querySelectorAll(".chat").forEach(chat => {
 
 // Add event listener to the "New Destination" button
 document.getElementById("newDestinationButton").addEventListener("click", function() {
-  // Hide right2 and show right1
-  document.querySelector(".right2").style.display = "none";
-  document.querySelector(".right1").style.display = "flex";
+  // Refresh the page
+  location.reload();
 });
+
 
 // const deleteButtons = document.querySelectorAll('.delete-button');
 // deleteButtons.forEach(button => {
